@@ -23,14 +23,16 @@ public class AuthenticationFilter implements Filter {
 	private static final String HOME = "/home";
 	private static final String ROOT = "/";
 	private static final String DASHBOARD = "/dashboard";
+	private static final String PRODUCT = "/products";
 	private static final String MODIFY_STUDENTS = "/modifyStudents";
 	private static final String STUDENT_UPDATE = "/studentUpdate";
 	private static final String ADMIN_ORDER = "/adminOrder";
-	private static final String ABOUT = "/about";
+	private static final String ABOUT = "/aboutus";
 	private static final String PORTFOLIO = "/portfolio";
 	private static final String CONTACT = "/contact";
 	private static final String ORDER_LIST = "/orderlist";
 	private static final String CART_LIST = "/cartlist";
+	
 
 	@Override
 	public void init(FilterConfig filterConfig) throws ServletException {
@@ -47,7 +49,7 @@ public class AuthenticationFilter implements Filter {
 		String uri = req.getRequestURI();
 		
 		// Allow access to resources
-		if (uri.endsWith(".png") || uri.endsWith(".jpg") || uri.endsWith(".css")) {
+		if (uri.endsWith(".png") || uri.endsWith(".jpg") || uri.endsWith(".css") ||uri.endsWith(PRODUCT) || uri.endsWith(ABOUT)|| uri.endsWith(CONTACT) ||uri.endsWith(PORTFOLIO))  {
 			chain.doFilter(request, response);
 			return;
 		}

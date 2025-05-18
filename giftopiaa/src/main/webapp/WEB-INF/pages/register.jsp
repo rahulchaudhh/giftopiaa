@@ -34,6 +34,12 @@
 		<h1>Create Your Gift Haven Account</h1>
 		<p class="subtitle">Join our community to receive exclusive offers
 			and gift ideas</p>
+			 <% if (request.getAttribute("error") != null) { %>
+        <p class="error-message"><i class="fas fa-exclamation-circle"></i> <%= request.getAttribute("error") %></p>
+        <% } %>
+        <% if (request.getParameter("success") != null) { %>
+        <p class="success-message"><i class="fas fa-check-circle"></i> <%= request.getParameter("success") %></p>
+        <% } %>
 
 		<!-- Full Name -->
 		<div class="form-group">
